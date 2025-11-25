@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { borderRadius } from "@/tokens";
 import { AvatarProps } from "./Avatar.types";
 
 const sizeStyles = {
@@ -21,7 +22,7 @@ const sizeStyles = {
 };
 
 export const Container = styled.div<{ size: AvatarProps["size"] }>`
-  border-radius: 50%;
+  border-radius: ${borderRadius.full};
   overflow: hidden;
   display: flex;
   align-items: center;

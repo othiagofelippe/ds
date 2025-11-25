@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { spacing } from "@/tokens";
+import { spacing, typography } from "@/tokens";
 
 export const Main = styled.main`
   padding: ${spacing[10]}px;
@@ -9,7 +9,8 @@ export const Main = styled.main`
 
 export const Title = styled.h1`
   color: ${(props) => props.theme.colors.text.headline};
-  font-size: 32px;
+  font-size: ${typography["4xl"].fontSize}px;
+  font-weight: ${typography["4xl"].fontWeight};
   margin: 0;
 `;
 
@@ -19,7 +20,8 @@ export const Section = styled.section`
 
 export const SectionTitle = styled.h2`
   color: ${(props) => props.theme.colors.text.heading};
-  font-size: 24px;
+  font-size: ${typography["2xl"].fontSize}px;
+  font-weight: ${typography["2xl"].fontWeight};
   margin: 0 0 ${spacing[4]}px 0;
 `;
 
@@ -86,5 +88,5 @@ export const ProfileName = styled.h4`
 export const ProfileRole = styled.p`
   margin: 0;
   color: ${(props) => props.theme.colors.text.span};
-  font-size: 14px;
+  font-size: ${typography.sm.fontSize}px;
 `;

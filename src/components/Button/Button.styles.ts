@@ -1,4 +1,4 @@
-import { spacing } from "@/tokens";
+import { spacing, borderRadius, typography } from "@/tokens";
 import { css, Theme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ButtonProps } from "./Button.types";
@@ -6,15 +6,15 @@ import { ButtonProps } from "./Button.types";
 const sizeStyles = {
   sm: css`
     padding: ${spacing[2]}px ${spacing[4]}px;
-    font-size: 14px;
+    font-size: ${typography.sm.fontSize}px;
   `,
   md: css`
     padding: ${spacing[3]}px ${spacing[6]}px;
-    font-size: 16px;
+    font-size: ${typography.base.fontSize}px;
   `,
   lg: css`
     padding: ${spacing[4]}px ${spacing[8]}px;
-    font-size: 18px;
+    font-size: ${typography.lg.fontSize}px;
   `,
 };
 
@@ -53,7 +53,7 @@ export const StyledButton = styled.button<{
   fullWidth: boolean;
 }>`
   border: none;
-  border-radius: 8px;
+  border-radius: ${borderRadius.lg};
   font-weight: 600;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};

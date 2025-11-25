@@ -1,4 +1,4 @@
-import { spacing } from "@/tokens";
+import { spacing, borderRadius, typography } from "@/tokens";
 import styled from "@emotion/styled";
 
 export const Container = styled.div<{ fullWidth: boolean }>`
@@ -9,7 +9,7 @@ export const Container = styled.div<{ fullWidth: boolean }>`
 `;
 
 export const Label = styled.label`
-  font-size: 14px;
+  font-size: ${typography.sm.fontSize}px;
   font-weight: 600;
   color: ${(props) => props.theme.colors.text.heading};
 `;
@@ -38,8 +38,8 @@ export const StyledInput = styled.input<{
   border: 2px solid
     ${(props) =>
       props.hasError ? props.theme.colors.feedback.error : props.theme.colors.border.primary};
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: ${borderRadius.lg};
+  font-size: ${typography.base.fontSize}px;
   transition: all 0.2s;
   color: ${(props) => props.theme.colors.text.body};
   background-color: ${(props) => props.theme.colors.background.primary};
@@ -78,6 +78,6 @@ export const IconContainer = styled.div<{
 `;
 
 export const ErrorText = styled.span`
-  font-size: 12px;
+  font-size: ${typography.xs.fontSize}px;
   color: ${(props) => props.theme.colors.feedback.error};
 `;

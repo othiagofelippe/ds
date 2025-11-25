@@ -1,5 +1,5 @@
-import { colors, spacing } from "@/tokens";
-import { css } from "@emotion/react";
+import { spacing } from "@/tokens";
+import { css, Theme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ButtonProps } from "./Button.types";
 
@@ -19,30 +19,30 @@ const sizeStyles = {
 };
 
 const variantStyles = {
-  primary: css`
-    background-color: ${colors.brand.pure};
-    color: ${colors.background.primary};
+  primary: (theme: Theme) => css`
+    background-color: ${theme.colors.brand.pure};
+    color: ${theme.colors.background.primary};
 
     &:hover:not(:disabled) {
-      background-color: ${colors.brand.dark};
+      background-color: ${theme.colors.brand.dark};
     }
   `,
-  secondary: css`
-    background-color: ${colors.background.secondary};
-    color: ${colors.text.headline};
+  secondary: (theme: Theme) => css`
+    background-color: ${theme.colors.background.secondary};
+    color: ${theme.colors.text.headline};
 
     &:hover:not(:disabled) {
-      background-color: ${colors.background.tertiary};
+      background-color: ${theme.colors.background.tertiary};
     }
   `,
-  outline: css`
+  outline: (theme: Theme) => css`
     background-color: transparent;
-    color: ${colors.brand.pure};
-    border: 2px solid ${colors.brand.pure};
+    color: ${theme.colors.brand.pure};
+    border: 2px solid ${theme.colors.brand.pure};
 
     &:hover:not(:disabled) {
-      background-color: ${colors.brand.pure};
-      color: ${colors.background.primary};
+      background-color: ${theme.colors.brand.pure};
+      color: ${theme.colors.background.primary};
     }
   `,
 };
@@ -66,7 +66,7 @@ export const StyledButton = styled.button<{
   gap: ${spacing[2]}px;
 
   ${(props) => sizeStyles[props.size || "md"]}
-  ${(props) => variantStyles[props.variant || "primary"]}
+  ${(props) => variantStyles[props.variant || "primary"](props.theme)}
 `;
 
 export const IconWrapper = styled.span`

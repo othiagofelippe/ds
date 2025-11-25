@@ -1,4 +1,4 @@
-import { colors, spacing } from "@/tokens";
+import { spacing } from "@/tokens";
 import styled from "@emotion/styled";
 
 export const Container = styled.div<{ fullWidth: boolean }>`
@@ -11,7 +11,7 @@ export const Container = styled.div<{ fullWidth: boolean }>`
 export const Label = styled.label`
   font-size: 14px;
   font-weight: 600;
-  color: ${colors.text.heading};
+  color: ${(props) => props.theme.colors.text.heading};
 `;
 
 export const InputWrapper = styled.div`
@@ -37,25 +37,26 @@ export const StyledInput = styled.input<{
       : `${spacing[3]}px`};
   border: 2px solid
     ${(props) =>
-      props.hasError ? colors.feedback.error : colors.border.primary};
+      props.hasError ? props.theme.colors.feedback.error : props.theme.colors.border.primary};
   border-radius: 8px;
   font-size: 16px;
   transition: all 0.2s;
-  color: ${colors.text.body};
+  color: ${(props) => props.theme.colors.text.body};
+  background-color: ${(props) => props.theme.colors.background.primary};
 
   &:focus {
     outline: none;
     border-color: ${(props) =>
-      props.hasError ? colors.feedback.error : colors.brand.pure};
+      props.hasError ? props.theme.colors.feedback.error : props.theme.colors.brand.pure};
   }
 
   &:disabled {
-    background-color: ${colors.background.secondary};
+    background-color: ${(props) => props.theme.colors.background.secondary};
     cursor: not-allowed;
   }
 
   &::placeholder {
-    color: ${colors.text.span};
+    color: ${(props) => props.theme.colors.text.span};
   }
 `;
 
@@ -67,16 +68,16 @@ export const IconContainer = styled.div<{
   ${(props) => props.position === "left" ? `left: ${spacing[3]}px;` : `right: ${spacing[3]}px;`}
   display: flex;
   align-items: center;
-  color: ${colors.text.span};
+  color: ${(props) => props.theme.colors.text.span};
   cursor: ${(props) => (props.clickable ? "pointer" : "default")};
 
   &:hover {
     color: ${(props) =>
-      props.clickable ? colors.brand.pure : colors.text.span};
+      props.clickable ? props.theme.colors.brand.pure : props.theme.colors.text.span};
   }
 `;
 
 export const ErrorText = styled.span`
   font-size: 12px;
-  color: ${colors.feedback.error};
+  color: ${(props) => props.theme.colors.feedback.error};
 `;

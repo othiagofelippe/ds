@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Button, Card, Input } from "@/components";
+import { Avatar, Button, Card, Input, ThemeToggle, Typography } from "@/components";
 import { useState } from "react";
 import {
   Main,
@@ -26,7 +26,10 @@ export default function Home() {
 
   return (
     <Main>
-      <Title>Meu Design System</Title>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <Title>Meu Design System</Title>
+        <ThemeToggle />
+      </div>
 
       <Section>
         <SectionTitle>Buttons</SectionTitle>
@@ -86,6 +89,39 @@ export default function Home() {
           <Avatar name="Bob Johnson" size="lg" />
           <Avatar name="Alice Brown" src="https://i.pravatar.cc/150?img=5" />
         </AvatarGroup>
+      </Section>
+
+      <Section>
+        <SectionTitle>Typography</SectionTitle>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <Typography size="6xl" family="poppins">
+            6XL - Poppins
+          </Typography>
+          <Typography size="4xl" family="poppins">
+            4XL - Poppins
+          </Typography>
+          <Typography size="2xl" family="poppins">
+            2XL - Poppins
+          </Typography>
+          <Typography size="base" family="poppins">
+            Base - Poppins (Default)
+          </Typography>
+          <Typography size="sm" family="poppins">
+            SM - Poppins
+          </Typography>
+          <Typography size="xs" family="poppins">
+            XS - Poppins
+          </Typography>
+          <Typography size="2xl" family="roboto">
+            2XL - Roboto
+          </Typography>
+          <Typography size="base" family="roboto">
+            Base - Roboto
+          </Typography>
+          <Typography size="sm" family="roboto">
+            SM - Roboto
+          </Typography>
+        </div>
       </Section>
 
       <Section>

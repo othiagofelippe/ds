@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors, spacing } from "@/tokens";
+import { spacing } from "@/tokens";
 
 export const Main = styled.main`
   padding: ${spacing[10]}px;
@@ -8,7 +8,7 @@ export const Main = styled.main`
 `;
 
 export const Title = styled.h1`
-  color: ${colors.text.headline};
+  color: ${(props) => props.theme.colors.text.headline};
   font-size: 32px;
   margin: 0;
 `;
@@ -18,7 +18,7 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h2`
-  color: ${colors.text.heading};
+  color: ${(props) => props.theme.colors.text.heading};
   font-size: 24px;
   margin: 0 0 ${spacing[4]}px 0;
 `;
@@ -59,12 +59,12 @@ export const CardContent = styled.div`
 
 export const CardTitle = styled.h3`
   margin: 0 0 ${spacing[2]}px 0;
-  color: ${colors.text.heading};
+  color: ${(props) => props.theme.colors.text.heading};
 `;
 
 export const CardText = styled.p`
   margin: 0;
-  color: ${colors.text.body};
+  color: ${(props) => props.theme.colors.text.body};
 `;
 
 export const ProfileCard = styled.div`
@@ -80,11 +80,11 @@ export const ProfileInfo = styled.div`
 
 export const ProfileName = styled.h4`
   margin: 0 0 ${spacing[1]}px 0;
-  color: ${colors.text.heading};
+  color: ${(props) => props.theme.colors.text.heading};
 `;
 
 export const ProfileRole = styled.p`
   margin: 0;
-  color: ${colors.text.span};
+  color: ${(props) => props.theme.colors.text.span};
   font-size: 14px;
 `;

@@ -1,15 +1,22 @@
-import { colors, typography } from "@/tokens";
+import { typography } from "@/tokens";
 import styled from "@emotion/styled";
+import { Theme } from "@emotion/react";
 import { TypographyProps } from "./Typography.types";
 
-const colorMap = {
-  headline: colors.text.headline,
-  heading: colors.text.heading,
-  body: colors.text.body,
-  span: colors.text.span,
-  brand: colors.brand.pure,
-  error: colors.feedback.error,
-  white: colors.background.primary,
+const getColor = (theme: Theme, color?: TypographyProps["color"]) => {
+  if (!color) return theme.colors.text.body;
+
+  const colorMap = {
+    headline: theme.colors.text.headline,
+    heading: theme.colors.text.heading,
+    body: theme.colors.text.body,
+    span: theme.colors.text.span,
+    brand: theme.colors.brand.pure,
+    error: theme.colors.feedback.error,
+    white: theme.colors.background.primary,
+  };
+
+  return colorMap[color];
 };
 
 export const StyledTypography = styled.p<{
@@ -21,7 +28,6 @@ export const StyledTypography = styled.p<{
   font-size: ${(props) => typography[props.size || "base"].fontSize}px;
   line-height: ${(props) => typography[props.size || "base"].lineHeight}px;
   font-weight: ${(props) => typography[props.size || "base"].fontWeight};
-  color: ${(props) =>
-    props.$color ? colorMap[props.$color] : colors.text.body};
+  color: ${(props) => getColor(props.theme, props.$color)};
   margin: 0;
 `;

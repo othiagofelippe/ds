@@ -1,9 +1,9 @@
-import { colors, spacing } from "@/tokens";
+import { spacing } from "@/tokens";
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  background-color: ${colors.background.primary};
-  border: 1px solid ${colors.border.primary};
+  background-color: ${(props) => props.theme.colors.background.primary};
+  border: 1px solid ${(props) => props.theme.colors.border.primary};
   border-radius: 12px;
   padding: ${spacing[6]}px;
   transition: all 0.2s;

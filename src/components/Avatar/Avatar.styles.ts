@@ -1,4 +1,3 @@
-import { colors } from "@/tokens";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { AvatarProps } from "./Avatar.types";
@@ -27,8 +26,8 @@ export const Container = styled.div<{ size: AvatarProps["size"] }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.brand.pure};
-  color: ${colors.background.primary};
+  background-color: ${(props) => props.theme.colors.brand.pure};
+  color: ${(props) => props.theme.colors.background.primary};
   font-weight: 600;
   flex-shrink: 0;
 

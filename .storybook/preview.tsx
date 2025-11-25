@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/nextjs-vite'
+import { poppins, roboto } from '../src/app/fonts'
+import '../src/app/globals.css'
 
 const preview: Preview = {
   parameters: {
@@ -16,6 +18,13 @@ const preview: Preview = {
       test: 'todo'
     }
   },
+  decorators: [
+    (Story) => (
+      <div className={`${poppins.variable} ${roboto.variable}`}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default preview;
